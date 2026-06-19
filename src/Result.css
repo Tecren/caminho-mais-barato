@@ -1,0 +1,60 @@
+.result-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem;
+}
+
+.back-button-container {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  cursor: pointer;
+  color: #FFF4E1;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.back-button-container:hover {
+  color: #89D7B7;
+  transform: scale(1.1);
+}
+
+.result-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card, .error-card {
+  border: 2px solid #428475;
+  padding: 4rem;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  background-color: rgba(66, 132, 117, 0.05);
+}
+
+.result-title {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #89D7B7;
+}
+
+.path-display {
+  font-size: 1.5rem;
+  margin: 3rem 0;
+  line-height: 1.8;
+}
+
+.cost-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #89D7B7;
+}
+
+.error-card p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}

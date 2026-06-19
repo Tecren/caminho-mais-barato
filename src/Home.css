@@ -1,0 +1,130 @@
+.home-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.top-right-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  color: #FFF4E1;
+  transition: color 0.3s;
+}
+
+.top-right-icon:hover {
+  color: #89D7B7;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  letter-spacing: 2px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.select-group, .input-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+select, input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #428475;
+  background-color: transparent;
+  color: #FFF4E1;
+  font-size: 1rem;
+  outline: none;
+}
+
+select option {
+  background-color: #1A312C;
+  color: #FFF4E1;
+}
+
+.validation-error {
+  color: #e6312b;
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-calcular {
+  background-color: transparent;
+  border: 2px solid #89D7B7;
+  color: #FFF4E1;
+  padding: 1rem 4rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-calcular:hover {
+  background-color: #89D7B7;
+  color: #1A312C;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(26, 49, 44, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #FFF4E1;
+  color: #1A312C;
+  padding: 3rem;
+  border-radius: 4px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: rgba(26, 49, 44, 0.85);
+}
+
+.btn-close {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background-color: #428475;
+  color: #FFF4E1;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
