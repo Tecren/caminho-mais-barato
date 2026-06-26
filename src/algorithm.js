@@ -9,6 +9,7 @@ class MinHeap {
   }
 
   extractMin() {
+    if (this.heap.length === 0) return null;
     if (this.heap.length === 1) return this.heap.pop();
     const min = this.heap[0];
     this.heap[0] = this.heap.pop();
@@ -74,7 +75,8 @@ export const buildGraph = (data) => {
 };
 
 export const findCheapestPath = (graph, start, end, fuelPrice, autonomy) => {
-  if (!graph[start] || !graph[end] || start === end) return null;
+  if (!graph[start] || !graph[end]) return null;
+  if (start === end) return { path: [start], cost: 0 };
 
   const distances = {};
   const previous = {};
@@ -92,6 +94,7 @@ export const findCheapestPath = (graph, start, end, fuelPrice, autonomy) => {
 
   while (!pq.isEmpty()) {
     const current = pq.extractMin();
+    if (!current) break;
     const currentNode = current.node;
 
     if (currentNode === end) {
@@ -101,15 +104,23 @@ export const findCheapestPath = (graph, start, end, fuelPrice, autonomy) => {
         path.push(curr);
         curr = previous[curr];
       }
-      return { path: path.reverse(), cost: distances[end] };
+
+      const finalCost = distances[end] - (graph[end].toll || 0);
+
+      return { 
+        path: path.reverse(), 
+        cost: Math.round(finalCost * 100) / 100
+      };
     }
 
     if (current.cost > distances[currentNode]) continue;
 
-    const neighbors = graph[currentNode].neighbors;
+    const neighbors = graph[currentNode].neighbors || {};
     for (let neighbor in neighbors) {
+      if (!graph[neighbor]) continue;
+
       const distanceToNeighbor = neighbors[neighbor];
-      const toll = graph[neighbor].toll;
+      const toll = graph[neighbor].toll || 0; 
       const fuelCost = (distanceToNeighbor / autonomy) * fuelPrice;
       const edgeCost = fuelCost + toll;
 
